@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>구구단-Vue기본 구조, 디렉터리</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="root">
+    <div>{{first}}곱하기 {{second}}는?</div>
+    <form v-on:submit="onSubmitForm">
+        <!-- v-model로 인풋값을 vue의 value연결 -->
+        <input type="number" ref="answer" v-model="value">
+        <button type="submit">입력</button>
+        <div>{{value}}</div>
+    </form>
+    <div id="result">{{result}}</div>
+</div>
+<script>
+    const app = new Vue({
+        el: "#root",
+        data: {
+            first: Math.ceil(Math.random() * 9),
+            second: Math.ceil(Math.random() * 9),
+            value: '',
+            result: '',
+        },
+        methods: {
+            onSubmitForm(e){
+                // form은 submit하면 자동으로 페이지 새로고침을 하는데
+                // 싱글 페이지므로 새로고침을 막기위해 사용
+                e.preventDefault();
+                console.log(this);
+                if(this.first * this.second === parseInt(this.value)){
+                    this.result = '정답입니다.';
+                    this.first = Math.ceil(Math.random() * 9),
+                        this.second = Math.ceil(Math.random() * 9),
+                        this.value = '';
+                    // 위에 ref를 선택, focus함으로써 자동으로 커서가 위치하도록
+                    // ref로 화면 직접 건드는 것은 지양
+                    this.$refs.answer.focus();
+                }else{
+                    this.result = '땡';
+                    this.value = '';
+                    this.$refs.answer.focus();
+                }
+            },
+        },
+    });
+</script>
+</body>
+</html>

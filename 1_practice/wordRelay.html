@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>끝말잇기</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="root">
+    <div>{{problem}}</div>
+    <form v-on:submit="onClickSubmit">
+        <input type="text" ref="input" v-model="answer">
+        <button type="submit" v-bind:title="info">Submit</button>
+    </form>
+    <div>{{result}}</div>
+</div>
+</body>
+<script>
+    const app = new Vue({
+        el: "#root",
+        // 초기 data 값
+        data: {
+            problem: 'apple',
+            answer: '',
+            result: '',
+            info: '이 버튼을 누르면 정답이 제출됩니다.',
+        },
+        methods: {
+            onClickSubmit(e){
+                e.preventDefault();
+                // if(this.problem[this.problem.length - 1] === this.answer[0]) --> 밑에랑 같은것
+                if(this.problem.substr(this.problem.length - 1) === this.answer.charAt(0)){
+                    this.result = 'Correct!';
+                    this.problem = this.answer;
+                    this.answer = '';
+                    this.$refs.input.focus();
+                }else{
+                    this.result = 'Wrong Answer...';
+                    this.answer = '';
+                    this.$refs.input.focus();
+                }
+            }
+        },
+    });
+</script>
+
+</html>

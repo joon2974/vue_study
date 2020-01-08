@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>끝말잇기-Component, Props</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="root">
+    <word-relay start-word="apple"></word-relay>
+    <word-relay start-word="grape"></word-relay>
+    <word-relay start-word="strawberry"></word-relay>
+</div>
+<script>
+    //Global component
+    Vue.component("word-relay", {
+        // template는 무조건 최상의 div 하나로 묶여야함!!!!
+        template: `
+            <div>
+                <div>{{problem}}</div>
+                <form v-on:submit="onClickSubmit">
+                    <input type="text" ref="input" v-model="answer">
+                    <button type="submit" v-bind:title="info">Submit</button>
+                </form>
+                <div>{{result}}</div>
+            </div>
+            `,
+        //각 경우마다 다른 데이터를 넣을때 그것을 쓴다고 선언
+        props: ['startWord'],
+        // 이 부분만 기존의 data 부분과 다름! 메소드 형태로 만들어야함
+        data() {
+            return{
+                problem: this.startWord,
+                answer: '',
+                result: '',
+                info: '이 버튼을 누르면 정답이 제출됩니다.',
+            }
+        },
+        methods: {
+            onClickSubmit(e){
+                e.preventDefault();
+                // if(this.problem[this.problem.length - 1] === this.answer[0]) --> 밑에랑 같은것
+                if(this.problem.substr(this.problem.length - 1) === this.answer.charAt(0)){
+                    this.result = 'Correct!';
+                    this.problem = this.answer;
+                    this.answer = '';
+                    this.$refs.input.focus();
+                }else{
+                    this.result = 'Wrong Answer...';
+                    this.answer = '';
+                    this.$refs.input.focus();
+                }
+            }
+        },
+    })
+</script>
+<script>
+    const app = new Vue({
+        el: "#root",
+    });
+</script>
+</body>
+</html>
