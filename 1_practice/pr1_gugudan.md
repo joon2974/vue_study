@@ -11,14 +11,14 @@
 >>>JS 코드 부분(script) - Vue 객체 일부
 >>>```javascript
 >>>const app = new Vue({
-        	el: "#root",
-        	data: {
-            	first: Math.ceil(Math.random() * 9),
-            	second: Math.ceil(Math.random() * 9),
-            	value: '',
-            	result: '',
-        	},
-        }
+>>>        	el: "#root",
+>>>        	data: {
+>>>            	first: Math.ceil(Math.random() * 9),
+>>>            	second: Math.ceil(Math.random() * 9),
+>>>            	value: '',
+>>>            	result: '',
+>>>        	},
+>>>        }
 >>>```
 >>>위 예시와 같이 vue 인스턴스 내부의 Data 중 실제 화면에 표시하고자 하는 변수 이름을 중괄호 사이에 넣어줌으로써 화면에 표시한다.
 >>>vue 인스턴스 내부 데이터 값이 변하면 화면의 값은 "자동"으로 변한다.
@@ -34,11 +34,11 @@
 >>>JS 코드 부분(script) - Vue 객체 일부
 >>>```javascript
 >>>methods: {
-            onSubmitForm(e){
-                // form은 submit하면 자동으로 페이지 새로고침을 하는데
-                // 싱글 페이지므로 새로고침을 막기위해 사용
-                e.preventDefault();
-            },
+>>>            onSubmitForm(e){
+>>>                // form은 submit하면 자동으로 페이지 새로고침을 하는데
+>>>                // 싱글 페이지므로 새로고침을 막기위해 사용
+>>>                e.preventDefault();
+>>>            },
 >>>```
 >>>From 내부의 submit 버튼을 누르면 Vue 인스턴스의 method에 정의한 onSubmitForm() 메소드를 실행한다.
 >>>
@@ -50,11 +50,11 @@
 >>>JS 코드 부분(script) - Vue 객체 일부
 >>>```javascript
 >>>data: {
-            first: Math.ceil(Math.random() * 9),
-            second: Math.ceil(Math.random() * 9),
-            value: '',
-            result: '',
-        },
+>>>            first: Math.ceil(Math.random() * 9),
+>>>            second: Math.ceil(Math.random() * 9),
+>>>            value: '',
+>>>            result: '',
+>>>        },
 >>>```
 >>>Form 내부의 input 태그 값을 Vue 인스턴스의 value라는 변수와 연결해 준다.
 >>>
