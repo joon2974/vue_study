@@ -40,7 +40,7 @@
 >>    <word-relay start-word="apple"></word-relay>
 >>    <word-relay start-word="grape"></word-relay>
 >>    <word-relay start-word="strawberry"></word-relay>
-</div>
+>></div>
 >>```
 >>>- 컴포넌트를 호출할 때, start-word를 서로다른 데이터로 사용하고자 옵션으로 준다.
 >>```javascript
