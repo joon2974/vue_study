@@ -7,52 +7,52 @@
 >>1. 기본 구조
 >>```javascript
 >><script>
-    //Global component
-    Vue.component("word-relay", {
-        // template는 무조건 최상의 div 하나로 묶여야함!!!!
-        template: `
-            <div>
-                <div>{{problem}}</div>
-                <div>{{result}}</div>
-            </div>
-            `,
-        //각 경우마다 다른 데이터를 넣을때 그것을 쓴다고 선언
-        props: ['startWord'],
-        // 이 부분만 기존의 data 부분과 다름! 메소드 형태로 만들어야함
-        data() {
-            return{
-                problem: this.startWord,
-            }
-        },
-        methods: {
-            onClickSubmit(e){
-                e.preventDefault();
-            }
-        },
-    })
-</script>
+>>    //Global component
+>>    Vue.component("word-relay", {
+>>        // template는 무조건 최상의 div 하나로 묶여야함!!!!
+>>        template: `
+>>            <div>
+>>                <div>{{problem}}</div>
+>>                <div>{{result}}</div>
+>>            </div>
+>>            `,
+>>        //각 경우마다 다른 데이터를 넣을때 그것을 쓴다고 선언
+>>        props: ['startWord'],
+>>        // 이 부분만 기존의 data 부분과 다름! 메소드 형태로 만들어야함
+>>        data() {
+>>            return{
+>>                problem: this.startWord,
+>>            }
+>>        },
+>>        methods: {
+>>            onClickSubmit(e){
+>>                e.preventDefault();
+>>            }
+>>        },
+>>    })
+>></script>
 >>>```
 >>>- template: html코드가 들어가는 부분 모든 태그는 무조건 가장 상위의 <u>div태그 하나로 묶여야 한다</u>.
 >>>- data: 기존 Vue 인스턴스 구조와 달리 각 컴포넌트 별로 사용되는 data가 다를 수 있으므로 <u>data()와 같이 메소드 형태로 구현</u>하며, 내부에서 <u>return을 필수</u>로 해주어야 한다.
 >>>- props: 같은 컴포넌트를 여러 번 호출한다 해도 일부분은 다르게 이용하고 싶을 수 있다. 그럴 때, 이용하는 것이 props 옵션이다.
 >>```html
 >><div id="root">
-    <word-relay start-word="apple"></word-relay>
-    <word-relay start-word="grape"></word-relay>
-    <word-relay start-word="strawberry"></word-relay>
+>>    <word-relay start-word="apple"></word-relay>
+>>    <word-relay start-word="grape"></word-relay>
+>>    <word-relay start-word="strawberry"></word-relay>
 </div>
 >>```
 >>>- 컴포넌트를 호출할 때, start-word를 서로다른 데이터로 사용하고자 옵션으로 준다.
 >>```javascript
 >>props: ['startWord'],
-data() {
-            return{
-                problem: this.startWord,
-                answer: '',
-                result: '',
-                info: '이 버튼을 누르면 정답이 제출됩니다.',
-            }
-        },
+>>data() {
+>>            return{
+>>                problem: this.startWord,
+>>                answer: '',
+>>                result: '',
+>>                info: '이 버튼을 누르면 정답이 제출됩니다.',
+>>            }
+>>        },
 >>```
 >>다음과 같이 props 옵션으로 startWord를 받아서 컴포넌트 내부에서 사용할 수 있게 한다. <u>data애서 props값에 접근할 때는 앞에 this를 붙여야 한다.</u>
 >>

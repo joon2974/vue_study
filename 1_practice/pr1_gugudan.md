@@ -76,39 +76,39 @@
 >>```javascript
 >><script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 >>```
->>
+
 >3. Vue 인스턴스
 >>- 모든 Vue 앱은 Vue 인스턴스를 생성함으로써 시작된다.
 >>HTML 코드 부분
 >>```html
 >><!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>구구단-Vue기본 구조, 디렉터리</title>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-</head>
-<body>
-	<div id="root">
-	</div>
-</body>
-</html>
+>><html>
+>><head>
+>>    <meta charset="UTF-8">
+>>    <title>구구단-Vue기본 구조, 디렉터리</title>
+>>    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+>></head>
+>><body>
+>>	<div id="root">
+>>	</div>
+>></body>
+>></html>
 >>```
 >>JS 코드 부분(script) - Vue 인스턴스 구조
 >>```javascript
 >><script>
-    const app = new Vue({
-        el: "#root",
-        data: {
-            value: '',
-        },
-        methods: {
-            onSubmitForm(e){
-                }
-            },
-        },
-    });
-</script>
+>>    const app = new Vue({
+>>        el: "#root",
+>>        data: {
+>>            value: '',
+>>        },
+>>        methods: {
+>>            onSubmitForm(e){
+>>                }
+>>            },
+>>        },
+>>    });
+>></script>
 >>```
 >>- el: html 내부의 어떤 div를 컨트롤 할 것인지.
 >>- data: 화면에서 <u>실제</u> 바뀌는 <u>data</u>들. 여기에는 초기값을 써준다.
