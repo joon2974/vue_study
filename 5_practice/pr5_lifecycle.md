@@ -91,7 +91,7 @@
             clearInterval(interval);
         },
     };
-</script>
+    </script>
     ```
     - mounted에서 실행한 changeHand 메소드가 계속해서 setInterval을 통해 그림을 바꿔주고 있는데, 이 작업이 컴포넌트가 사라져도 계속되기 때문에 beforeDestroy에서 clear해줌으로써 __memory leak을 방지__해준다.
 
