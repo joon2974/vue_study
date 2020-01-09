@@ -65,10 +65,10 @@
 >>3. 컴포넌트 사용시 Vue 인스턴스
 >>>```javascript
 >>><script>
-    const app = new Vue({
-        el: "#root",
-    });
-</script>
+>>>    const app = new Vue({
+>>>        el: "#root",
+>>>    });
+>>></script>
 >>>```
 >>>컴포넌트 외부에 다음과 같이 Vue 인스턴스를 생성하여 id가 root인 div를 컨트롤 해준다.
 >>><u>Vue 인스턴스 선언부 위에 컴포넌트를 선언해야 한다.</u>
@@ -81,13 +81,13 @@
 >>```
 >>```javascript
 >>data() {
-            return{
-                problem: this.startWord,
-                answer: '',
-                result: '',
-                info: '이 버튼을 누르면 정답이 제출됩니다.',
-            }
-        },
+>>            return{
+>>                problem: this.startWord,
+>>                answer: '',
+>>                result: '',
+>>                info: '이 버튼을 누르면 정답이 제출됩니다.',
+>>            }
+>>        },
 >>```
 >>제출 버튼에 커서를 올리면 info에 해당하는 '이 버튼을~'이 보이게한다(title 속성).
 
