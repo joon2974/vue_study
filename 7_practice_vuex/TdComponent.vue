@@ -3,27 +3,41 @@
 </template>
 
 <script>
+    import { mapState } from 'vuex'
     import {CLICK_CELL, SET_WINNER, RESET_GAME, CHANGE_TURN, NO_WINNER} from "./store";
 
     export default {
         props: {
-            //O, X 또는 빈칸을 뜻함
-            cellData: String,
             rowIndex: Number,
             cellIndex: Number,
+        },
+        computed: {
+            ...mapState({
+                tableData: state => state.tableData,
+                turn: state => state.turn,
+                cellData(state){
+                    return state.tableData[this.rowIndex][this.cellIndex];
+                }
+            }),
+          //   cellData(){
+          //     return this.$store.state.tableData[this.rowIndex][this.cellIndex];
+          //   },
+          // // vuex의 state를 받아와 쓰기 위해 computed로 연결해준다.!!
+          //   tableData(){
+          //       return this.$store.state.tableData;
+          //   },
+          //   turn(){
+          //     return this.$store.state.turn;
+          //   },
         },
         methods: {
             onClickTd(){
                 //이미 그 칸을 누가 눌렀으면 함수 종료해버리기
                 if(this.cellData) return;
 
-                //Vue에서 배열이 있을 때, 아래와 같이 index를 통해 그 배열에 접근하여 값을 바꾸면
-                //화면에 반영이 되지 않는다.!!!!, 객체의 key를 바꾸는 것도 동일
-                //this.$set을 이용한다.
-                //this.$root.$data.tableData[this.rowIndex][this.cellIndex] = this.$root.$data.turn;
-
-                //mutation을 부를 때는 commit을 사용
+                // vuex의 mutation을 부를 때는 commit을 사용!!
                 this.$store.commit(CLICK_CELL, {row: this.rowIndex, cell: this.cellIndex});
+                console.log([this.rowIndex, this.cellIndex], "Index");
 
                 let win = false;
                 if(this.tableData[this.rowIndex][0] === this.turn && this.tableData[this.rowIndex][1] === this.turn && this.tableData[this.rowIndex][2]){

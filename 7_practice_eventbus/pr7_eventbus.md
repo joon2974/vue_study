@@ -29,6 +29,7 @@
     ```
     - 위와 같이 루트 컴포넌트에서 EventBus를 import한 후 $on을 통해 메소드를 이어준다.
     - 위 코드에서는 clickTd에 onClickTd 메소드를 이어주었다.
+    - created() 내부에 써준다.
     
     #### TdComponent.vue에서 emit을 통해 clickTd와 onClickTd를 이어줌. 이 때, 매개인자로 rowIndex와 cellIndex를 넘겨준다.
     ```javascript

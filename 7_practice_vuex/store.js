@@ -1,5 +1,8 @@
-import Vuex from 'vuex';
 import Vue from 'vue';
+import Vuex from 'vuex';
+
+//Vue랑 Vuex 연결
+Vue.use(Vuex);
 
 export const SET_WINNER = 'SET_WINNER'; //import {SET_WINNER} from './store'
 export const CLICK_CELL = 'CLICK_CELL';
@@ -19,8 +22,10 @@ export default new Vuex.Store({ //import store from './store'
         winner: '',
     }, // vue의 data와 비슷
     getters: {
-
-    }, //vue의 computed와 비슷
+        turnMessage(state){
+            return state.turn + '님이 승리하셨습니다.';
+        }
+    }, //vue의 computed와 비슷, 기존의 state를 활용하여 무언가를 할 때. 캐싱됨.
     mutations: {
         //mutations의 함수는 대문자로 명명하는 것이 규칙
         [SET_WINNER](state, winner){
