@@ -9,7 +9,7 @@ img {
   width: 100%;
 }
 .container {
-  margin: 0 15px 0 15px;
+  margin: 0px 75px 0 15px;
 }
 header {
   border-bottom: 1px #ccc solid;
@@ -113,7 +113,7 @@ form {
   z-index:1;
   top: 0;
   left: 0;
-  background-color: #9795ED;
+  background-color: #01DFA5;
   overflow-x: hidden;
   transition:0.5s ease-in-out;
   padding-top: 60px;
@@ -161,3 +161,11 @@ form {
   width: 50px;
   height: 50px;
 }
+.footer{
+  text-align: right;
+  position: absolute;
+  top: 95%;
+  width: 100%;
+  height: 5%;
+}
+

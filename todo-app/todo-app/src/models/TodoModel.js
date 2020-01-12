@@ -1,6 +1,8 @@
 export default {
   data: [
-    {todo: '오픈케어랩 출근하기', state:true}
+    {todo: '오픈케어랩 출근하기', state:true},
+    {todo: 'Vue Study', state: false},
+    {todo: 'Chat Study', state:true}
   ],
   list(tab){
     return new Promise(res => {

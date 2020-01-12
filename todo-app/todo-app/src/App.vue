@@ -4,11 +4,13 @@
     <div>
       <router-view></router-view>
     </div>
+    <footer-component></footer-component>
   </div>
 </template>
 
 <script>
   import SidebarComponent from './components/SidebarComponent'
+  import FooterComponent from "./components/FooterComponent";
 
   export default {
       name: 'app',
@@ -22,7 +24,9 @@
           }
       },
       components:{
-          'sidebar': SidebarComponent
+          FooterComponent,
+          'sidebar': SidebarComponent,
+          'footer-component': FooterComponent
       }
   }
 

@@ -20,15 +20,6 @@
                   return {width: "250px"}
               }
           },
-          RoutePath(){
-              if(this.menu === 'opencarelab'){
-                  return '/';
-              }else if(this.menu === 'vue 소개'){
-                  return '/vueinfo';
-              }else{
-                  return '/todo';
-              }
-          }
       },
       data() {
           return{
